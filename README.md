@@ -8,3 +8,8 @@ hooks drop inventory item to not delete the dropped item from the players invent
 effectively duplicating them
 
 current information on the valid id's can be found in dumped_items.txt, a copy included in this project for convenience 
+
+# Instructions
+compile as release or download the precompiled release and inject using any DLL injector, such as:
+
+https://github.com/darthton/xenos
