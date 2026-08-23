@@ -4,7 +4,7 @@ A simple in-game item spawner and duplication tool for **Dying Light 1**.
 
 ![Item Spawner](Spawner.png)
 
-![Item Duper](Spawner1.png)
+![Item Duper](Spawner2.png)
 
 ## Features
 
