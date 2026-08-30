@@ -5,6 +5,7 @@ A simple item spawner, entity spawner, and gameplay modifier tool for **Dying Li
 ![Zombie Spawner](Zombies.png)
 ![GUI](GUI.png)
 
+Messy codebase, made very quickly
 
 ## Features
 
@@ -18,17 +19,15 @@ The panel shows all active players in your session and lets you pick a target pl
 ### Item Spawner
 Spawn any item using its internal item ID and the desired quantity, targeted at any active player.
 
-Press the **End** key (`VK_END`) at any time to dump the currently available item IDs. The results will be written to:
-```text
-Dying Light\dumped_items.txt
-```
 A copy of `dumped_items.txt` is included in this repository for convenience. If an ID from the included list no longer works, dump the IDs again from your current game version.
 
 ### Entity Spawner
 Spawn AI entities by name (e.g. `Volatile_Super`) at a target player's location, with a configurable quantity.
 
+A copy of `human_ai_entities.txt` is included in this repository for convenience, you can also dump this.
+
 ### Teleport
-Teleport yourself directly to the selected target player.
+Semi-working, rubberbands, haven't tested as local host, might work, but its for sure possible, just testing a cheap way
 
 ### Explosion
 Trigger an explosion at the selected target player's position.
@@ -37,7 +36,7 @@ Trigger an explosion at the selected target player's position.
 Toggle switches in the panel for:
 * **Duplicate Items** — drop inventory items without removing them from your inventory.
 * **Rapid Fire** — removes weapon fire rate limits.
-* **Give Ammo** — keeps equipped ammo topped up.
+* **Give Ammo** — not implemented
 
 ## Installation
 
