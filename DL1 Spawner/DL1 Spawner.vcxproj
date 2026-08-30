@@ -123,7 +123,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>$(SolutionDir)Dependencies\Detours\detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)Dependencies\Detours\detours.lib;d3d11.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -142,23 +142,44 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>$(SolutionDir)Dependencies\Detours\detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)Dependencies\Detours\detours.lib;d3d11.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Game\Offsets.h" />
-    <ClInclude Include="Game\SDK\CDebugRenderer.h" />
-    <ClInclude Include="Game\SDK\CRenderer.h" />
-    <ClInclude Include="Game\SDK\HudManager.h" />
-    <ClInclude Include="Game\SDK\PlayerDI.h" />
+    <ClInclude Include="Game\SDK\Engine\CDebugRenderer.h" />
+    <ClInclude Include="Game\SDK\Engine\CGame.h" />
+    <ClInclude Include="Game\SDK\Engine\CRenderer.h" />
+    <ClInclude Include="Game\SDK\Engine\EntityList.h" />
+    <ClInclude Include="Game\SDK\Engine\IControlObject.h" />
+    <ClInclude Include="Game\SDK\Game\CameraFPPDI.h" />
+    <ClInclude Include="Game\SDK\Game\CameraManagerDI.h" />
+    <ClInclude Include="Game\SDK\Game\GameDI.h" />
+    <ClInclude Include="Game\SDK\Game\ExplosionManager.h" />
+    <ClInclude Include="Game\SDK\Game\HudManager.h" />
+    <ClInclude Include="Game\SDK\Engine\IGSObject.h" />
+    <ClInclude Include="Game\SDK\Game\InventoryContainerDI.h" />
+    <ClInclude Include="Game\SDK\Game\LevelDI.h" />
+    <ClInclude Include="Game\SDK\Game\PlayerDI.h" />
+    <ClInclude Include="Game\SDK\Game\SessionCooperativeDI.h" />
+    <ClInclude Include="Game\Types\Array.h" />
+    <ClInclude Include="Game\Types\ExplosionDamageParams.h" />
+    <ClInclude Include="Game\Types\GameString.h" />
+    <ClInclude Include="Game\Types\Transform.h" />
     <ClInclude Include="Game\Types\Vector.h" />
+    <ClInclude Include="GUI\SharedPlayerList.h" />
+    <ClInclude Include="GUI\WebGUI.h" />
     <ClInclude Include="Hooks\DropInventoryItem.h" />
     <ClInclude Include="Hooks\EngineFunc.h" />
+    <ClInclude Include="Hooks\SetItemValue.h" />
+    <ClInclude Include="Hooks\GetFireInterval.h" />
     <ClInclude Include="pch\pch.h" />
-    <ClInclude Include="Utils\Console.h" />
+    <ClInclude Include="Utils\EntityDumper.h" />
     <ClInclude Include="Utils\ItemDumper.h" />
     <ClInclude Include="Utils\Memory.h" />
-    <ClInclude Include="Utils\Spawner.h" />
+    <ClInclude Include="Utils\RTTI.h" />
+    <ClInclude Include="Features\ItemSpawner.h" />
+    <ClInclude Include="Features\ZombieSpawner.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />

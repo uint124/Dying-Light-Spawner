@@ -1,5 +1,7 @@
 #pragma once
 
+typedef struct Vector4 Quaternion;
+
 struct Vector4
 {
 	float x, y, z, w;

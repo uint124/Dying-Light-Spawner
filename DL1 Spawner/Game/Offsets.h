@@ -12,6 +12,7 @@ namespace Offsets
 
 	namespace Engine
 	{
+		constexpr uint32_t FindObjectsInExtentsFunction = 0x299980;
 		constexpr uint32_t EngineThreadFunction = 0x5DB200; // Need to hijack a thread for TLS context - 40 55 41 56 41 57 48 83 EC ? 48 8B 91
 
 		constexpr uint32_t RendererInstance = 0xA40248; // CRenderer -> 74 ? 48 8B 01 33 D2 FF 10 48 8B 0D --- OR ---- 48 8B 0D ? ? ? ? 48 8D B5
@@ -25,10 +26,16 @@ namespace Offsets
 		{
 			constexpr uint32_t DebugRenderer = 0x3D8;
 		}
+
+		namespace IGSObject
+		{
+			constexpr uint32_t CreateObjectFunction = 0x253A30; // 48 89 5C 24 ? 48 89 6C 24 ? 56 48 83 EC ? C6 44 24
+		}
 	}
 
 	namespace Game
 	{
+		constexpr uint32_t CGameInstance = 0xA3F3C0;
 		constexpr uint32_t HudManagerInstance = 0x1C16358; // 74 ? 48 8B 89 ? ? ? ? 48 8B D1 ---- OR ---- 48 8B B8 ? ? ? ? 48 85 FF 0F 84 ? ? ? ? 48 8B 0D
 
 		// Item Spawning
@@ -53,8 +60,18 @@ namespace Offsets
 
 		namespace InventoryContainerDI
 		{
-
+			constexpr uint32_t InventoryAmmo = 0x48; 
 		}
+
+		namespace ExplosionManager
+		{
+			constexpr uint32_t TypeDescriptor = 0x1C7D070; // CRTTIGameScript<ExplosionDamagerBlast> --- 48 8D 15 ? ? ? ? 48 8B 4B ? 45 33 C9
+
+			constexpr uint32_t ProcessExplosionDamageFunction = 0x9ED6A0;
+			constexpr uint32_t InitializeExplosionDamageParams = 0x296C80;
+		}
+
+		
 	}
 
 

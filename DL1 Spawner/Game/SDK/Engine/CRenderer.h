@@ -8,7 +8,7 @@ public:
 		return *(CRenderer**)(Offsets::EngineModuleBase + Offsets::Engine::RendererInstance);
 	}
 
-	CDebugRenderer* GetDebugRenderer()
+	class CDebugRenderer* GetDebugRenderer()
 	{
 		// Two CDebugRendererInstances at 0x3D8 and 0x3E0
 		return *(CDebugRenderer**)((DWORD64)this + Offsets::Engine::CRenderer::DebugRenderer);

@@ -60,3 +60,44 @@ uint64_t find_sig(const char* module_name, const char* byte_array)
 
 	return 0;
 }
+
+template<typename T>
+T FindExport(uint64_t target, const char* export_name)
+{
+
+	auto dos_header = (IMAGE_DOS_HEADER*)(target);
+	if (dos_header->e_magic != IMAGE_DOS_SIGNATURE)
+		return 0;
+
+	auto ntHeaders = (PIMAGE_NT_HEADERS)(target + dos_header->e_lfanew);
+	if (ntHeaders->Signature != IMAGE_NT_SIGNATURE)
+		return 0;
+
+	auto export_data_directory = ntHeaders->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT];
+	if (export_data_directory.VirtualAddress == 0 || export_data_directory.Size == 0)
+		return 0;
+
+	auto export_directory = (PIMAGE_EXPORT_DIRECTORY)(target + export_data_directory.VirtualAddress);
+
+	PDWORD pdwFunctions = (PDWORD)(target + export_directory->AddressOfFunctions);
+	PDWORD pdwNames = (PDWORD)(target + export_directory->AddressOfNames);
+	PWORD  pwOrdinals = (PWORD)(target + export_directory->AddressOfNameOrdinals);
+
+	for (int i = 0; i < export_directory->NumberOfNames; i++)
+	{
+		const char* function_name = (const char*)(target + pdwNames[i]);
+		if (!function_name)
+			continue;
+
+		if (strcmp(function_name, export_name) == 0)
+		{
+			WORD ordinal_index = pwOrdinals[i];
+			DWORD function_rva = pdwFunctions[ordinal_index];
+			uint64_t function_address = target + function_rva;
+
+			return (T)(function_address);
+		}
+	}
+
+	return 0;
+}

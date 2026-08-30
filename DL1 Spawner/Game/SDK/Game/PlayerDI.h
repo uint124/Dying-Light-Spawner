@@ -1,6 +1,6 @@
 #pragma once
 
-class PlayerDI
+class PlayerDI : public IControlObject
 {
 public:
     // Player + 0x938 == InventoryContainerDI
@@ -10,8 +10,12 @@ public:
         return *(InventoryContainerDI**)((DWORD64)this + Offsets::Game::PlayerDI::InventoryContainer);
     }
 
-    Vector3 GetPosition()
+    const char* GetName()
     {
-        return *(Vector3*)((DWORD64)this + 0x808);
+        uint64_t Data = *(uint64_t*)((DWORD64)this + 0x7E8);
+        if (!Data)
+            return 0;
+
+        return *(const char**)((DWORD64)Data + 0x10);
     }
 };

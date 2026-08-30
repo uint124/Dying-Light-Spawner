@@ -21,16 +21,16 @@
     <ClInclude Include="Game\Types\Vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\SDK\PlayerDI.h">
+    <ClInclude Include="Game\SDK\Game\PlayerDI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Offsets.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\SDK\HudManager.h">
+    <ClInclude Include="Game\SDK\Game\HudManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\Spawner.h">
+    <ClInclude Include="Features\ItemSpawner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Hooks\EngineFunc.h">
@@ -39,13 +39,10 @@
     <ClInclude Include="Utils\ItemDumper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\SDK\CRenderer.h">
+    <ClInclude Include="Game\SDK\Engine\CRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\SDK\CDebugRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Utils\Console.h">
+    <ClInclude Include="Game\SDK\Engine\CDebugRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utils\Memory.h">
@@ -54,10 +51,82 @@
     <ClInclude Include="Hooks\DropInventoryItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Types\ExplosionDamageParams.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SDK\Engine\IGSObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SDK\Game\ExplosionManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SDK\Game\LevelDI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Features\ZombieSpawner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\EntityDumper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SDK\Engine\EntityList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Types\Array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\GetFireInterval.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\RTTI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SDK\Engine\CGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SDK\Game\GameDI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SDK\Game\SessionCooperativeDI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SDK\Game\CameraManagerDI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SDK\Game\CameraFPPDI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Types\GameString.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Types\Transform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SDK\Engine\IControlObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\WebGUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\SharedPlayerList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\SetItemValue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SDK\Game\InventoryContainerDI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="$(SolutionDir)Dependencies\IMGUI\*.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\IMGUI\*.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\IMGUI\*.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\IMGUI\*.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\IMGUI\*.cpp" />
+    <ClCompile Include="$(SolutionDir)Dependencies\IMGUI\*.cpp" />
   </ItemGroup>
 </Project>
