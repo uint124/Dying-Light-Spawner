@@ -1,45 +1,56 @@
 # DL1 Spawner
-
-A simple in-game item spawner and duplication tool for **Dying Light 1**.
+A simple item spawner, entity spawner, and gameplay modifier tool for **Dying Light 1**, controlled through a local web-based control panel.
 
 ![Item Spawner](Spawner.png)
+![Zombie Spawner](Zombies.png)
+![GUI](GUI.png)
 
-![Item Duper](Spawner2.png)
 
 ## Features
 
-### Item Spawner
+### Web Control Panel
+All features are controlled through a browser-based panel served locally by the DLL. Once injected, the panel opens automatically at:
+```text
+http://127.0.0.1:31847
+```
+The panel shows all active players in your session and lets you pick a target player for spawns, teleport, and explosions.
 
-Spawn any item using its internal item ID and the desired quantity.
+### Item Spawner
+Spawn any item using its internal item ID and the desired quantity, targeted at any active player.
 
 Press the **End** key (`VK_END`) at any time to dump the currently available item IDs. The results will be written to:
-
 ```text
 Dying Light\dumped_items.txt
 ```
-
 A copy of `dumped_items.txt` is included in this repository for convenience. If an ID from the included list no longer works, dump the IDs again from your current game version.
 
-### Item Duper
+### Entity Spawner
+Spawn AI entities by name (e.g. `Volatile_Super`) at a target player's location, with a configurable quantity.
 
-Allows inventory items to be dropped without removing them from the player's inventory.
+### Teleport
+Teleport yourself directly to the selected target player.
 
-Enable the duper, drop an item normally, and it will remain in your inventory. This can be repeated as many times as needed.
+### Explosion
+Trigger an explosion at the selected target player's position.
+
+### Combat Modifiers
+Toggle switches in the panel for:
+* **Duplicate Items** — drop inventory items without removing them from your inventory.
+* **Rapid Fire** — removes weapon fire rate limits.
+* **Give Ammo** — keeps equipped ammo topped up.
 
 ## Installation
 
 ### Precompiled Release
-
 1. Download the latest build from the [Releases](../../releases) page.
 2. Launch Dying Light.
 3. Enter a loaded save.
 4. Inject the DLL into the Dying Light process using a DLL injector.
-5. Open the menu and select the feature you want to use.
+5. The control panel will open automatically in your browser. If it doesn't, navigate to `http://127.0.0.1:31847` manually.
 
 [Xenos](https://github.com/darthton/xenos) is one injector that can be used.
 
 ### Building From Source
-
 1. Clone or download this repository.
 2. Open the solution in Visual Studio.
 3. Select **Release** and **x64**.
@@ -49,29 +60,35 @@ Enable the duper, drop an item normally, and it will remain in your inventory. T
 ## Usage
 
 To spawn an item:
-
-1. Open the item spawner.
-2. Enter a valid item ID.
-3. Enter the desired quantity.
-4. Press the spawn button.
+1. Open the control panel.
+2. Select a target player.
+3. Enter a valid item ID and quantity under **Spawn Item**.
+4. Press **Spawn Item**.
 
 To refresh the item list, press **End** while in-game and check `dumped_items.txt` in the game directory.
 
-To duplicate an item:
+To spawn an entity:
+1. Select a target player.
+2. Enter an entity name and quantity under **Spawn Entity**.
+3. Press **Spawn Entity**.
 
-1. Enable the item duper.
+To duplicate an item:
+1. Enable **Duplicate Items** in the panel.
 2. Open your inventory.
 3. Drop the item normally.
 4. Pick up the dropped copy or continue dropping additional copies.
 
-## Notes
+To teleport or trigger an explosion:
+1. Select a target player.
+2. Press **Teleport To Target** or **Spawn Explosion**.
 
+## Notes
 * Intended for the Windows version of Dying Light 1.
 * Game updates may change or invalidate item IDs.
-* Antivirus software may flag injected DLLs
+* The control panel binds to `127.0.0.1` only and is not reachable outside your machine.
+* Antivirus software may flag injected DLLs.
 
 ## Disclaimer
-
 This project is not affiliated with or endorsed by Techland. Use it at your own risk.
 
 If you find the project useful, consider starring the repository.
